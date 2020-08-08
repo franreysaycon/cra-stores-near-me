@@ -53,7 +53,7 @@ const Card = ({ number, name, location, mapLocation }) => (
     <Section>
       <BoldText size={2}>{name}</BoldText>
       <Text>{location}</Text>
-      <Anchor href={`geo:${mapLocation}`} target="_blank">{"> View in Maps"}</Anchor>
+      <Anchor href={`https://maps.google.com/?q=${mapLocation}`} target="_blank">{"> View in Maps"}</Anchor>
     </Section>
   </Container>
 )
