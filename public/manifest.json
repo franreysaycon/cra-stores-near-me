@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "StoresNearMe",
+  "name": "FSAYCON.DEV - find stores near you",
   "icons": [
     {
       "src": "favicon.ico",
