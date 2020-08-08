@@ -7,13 +7,18 @@ import GlobalStyles from './GlobalStyles';
 import theme from './theme';
 import 'typeface-manrope'
 import LocationProvider from './LocationProvider';
+import { Router } from "@reach/router"
+import Stores from './Stores';
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <LocationProvider>
-        <App />
+        <Router>
+          <App path="/" />
+          <Stores path="/stores" />
+        </Router>
       </LocationProvider>
     </ThemeProvider>
   </React.StrictMode>,

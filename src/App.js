@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Box from './components/Box';
 import MarginBox from './components/MarginBox';
 import Header from './components/Header';
@@ -7,6 +7,7 @@ import Button from './components/Button';
 import StoreImage from './components/StoreImage';
 import { useContext } from 'react';
 import { LocationContext } from './LocationProvider';
+import { navigate } from '@reach/router';
 
 const Content = styled.div`
   display: flex;
@@ -18,10 +19,13 @@ const Content = styled.div`
 `
 
 const App = () => { 
+  const { getLocation, success } = useContext(LocationContext)
 
-  const { getLocation, position, error } = useContext(LocationContext)
-  console.log(position)
-  console.log(error)
+  useEffect(() => {
+    if(success){
+      navigate('/stores')
+    }
+  }, [success])
 
   return (
     <Box>

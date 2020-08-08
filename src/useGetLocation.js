@@ -25,7 +25,8 @@ const useGetLocation = () => {
   return {
     getLocation,
     position,
-    error
+    error,
+    success: !!position,
   }
 }
 
