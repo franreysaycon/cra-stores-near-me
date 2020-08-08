@@ -6,7 +6,6 @@ import { ThemeProvider } from 'styled-components'
 import GlobalStyles from './GlobalStyles';
 import theme from './theme';
 import 'typeface-manrope'
-import LocationProvider from './LocationProvider';
 import { Router } from "@reach/router"
 import Stores from './Stores';
 
@@ -14,12 +13,10 @@ ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <LocationProvider>
-        <Router>
-          <App path="/" />
-          <Stores path="/stores" />
-        </Router>
-      </LocationProvider>
+      <Router>
+        <App path="/" />
+        <Stores path="/stores/:position" />
+      </Router>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')

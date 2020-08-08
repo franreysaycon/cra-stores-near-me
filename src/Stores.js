@@ -1,21 +1,12 @@
-import React, { useContext, useEffect } from 'react'
+import React from 'react'
 import Box from './components/Box'
 import MarginBox from './components/MarginBox'
-import { LocationContext } from './LocationProvider'
 import useGetStore from './api/useGetStores'
-import { navigate } from '@reach/router'
 import Card from './components/Card'
 import Header from './components/Header'
 
-const Stores = () => {
-  const { position } = useContext(LocationContext)
+const Stores = ({ position }) => {
   const { data, isLoading, isError } = useGetStore(position)
-
-  useEffect(() => {
-    if(!position){
-      navigate('/')
-    }
-  }, [position])
 
   if(isLoading){
     return <div>....LOADING</div>

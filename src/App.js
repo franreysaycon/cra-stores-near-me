@@ -5,9 +5,8 @@ import Header from './components/Header';
 import styled from 'styled-components'
 import Button from './components/Button';
 import StoreImage from './components/StoreImage';
-import { useContext } from 'react';
-import { LocationContext } from './LocationProvider';
 import { navigate } from '@reach/router';
+import useGetLocation from './useGetLocation';
 
 const Content = styled.div`
   display: flex;
@@ -19,13 +18,19 @@ const Content = styled.div`
 `
 
 const App = () => { 
-  const { getLocation, success } = useContext(LocationContext)
+  const { getLocation, position, success, error } = useGetLocation()
+
+  useEffect(() => {
+    if(error){
+      alert('Unable to get current location. Check if the app is permitted to access location.')
+    }
+  }, [error])
 
   useEffect(() => {
     if(success){
-      navigate('/stores')
+      navigate(`/stores/${position}`)
     }
-  }, [success])
+  }, [position, success])
 
   return (
     <Box>
