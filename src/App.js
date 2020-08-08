@@ -1,26 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Box from './components/Box';
+import MarginBox from './components/MarginBox';
+import Header from './components/Header';
+import styled from 'styled-components'
+import Button from './components/Button';
+import StoreImage from './components/StoreImage';
+import { useContext } from 'react';
+import { LocationContext } from './LocationProvider';
 
-function App() {
+const Content = styled.div`
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+`
+
+const App = () => { 
+
+  const { getLocation, position, error } = useContext(LocationContext)
+  console.log(position)
+  console.log(error)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Box>
+      <MarginBox>
+        <Content>
+          <StoreImage />
+          <Header>Are there stores nearby?</Header>
+          <Button onClick={getLocation}>Find in my location</Button>
+        </Content>
+      </MarginBox>
+    </Box>
+  )
 }
 
 export default App;
