@@ -4,16 +4,42 @@ import MarginBox from './components/MarginBox'
 import useGetStore from './api/useGetStores'
 import Card from './components/Card'
 import Header from './components/Header'
+import { SwishSpinner } from "react-spinners-kit"
+import styled, { useTheme } from 'styled-components'
+import Button from './components/Button'
+
+const Placeholder = styled.div`
+  display: flex;
+  flex: 1;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  & > span {
+    margin-bottom: ${({ theme }) => theme.spaces[0]};
+  }
+`
 
 const Stores = ({ position }) => {
-  const { data, isLoading, isError } = useGetStore(position)
+  const { data, isLoading, error } = useGetStore(position)
+  const theme = useTheme()
 
   if(isLoading){
-    return <div>....LOADING</div>
+    return (
+      <Placeholder>
+        <SwishSpinner size={30} color={theme.lgColor.main} loading={true} />
+      </Placeholder>
+    )
   }
 
-  if(isError){
-    return <div>....ERROR!</div>
+  if(!!error){
+    return (
+      <Placeholder>
+        <span>Something went wrong.</span>
+        <Button>Try again</Button>
+      </Placeholder>
+    )
   }
 
   return (

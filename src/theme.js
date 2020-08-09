@@ -13,6 +13,9 @@ const theme = {
   },
   bgColor: {
     main: '#f5f5f5'
+  },
+  lgColor: {
+    main: '#22a2dc'
   }
 }
 

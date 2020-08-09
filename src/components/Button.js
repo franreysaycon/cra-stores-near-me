@@ -6,7 +6,6 @@ const Button = styled.button`
   background-color: ${({ theme }) => theme.buttonColor.main};
   font-size: ${({ theme }) => theme.fontSizes[0]};
   color: ${({ theme }) => theme.fontColor.secondary};
-  font-family: ${({ theme }) => theme.font.main};
   border-radius: 5px;
 
   &:hover {

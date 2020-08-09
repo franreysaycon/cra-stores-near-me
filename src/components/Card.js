@@ -25,7 +25,6 @@ const NumberSection = styled(Section)`
 const Number = styled.div`
   width: 50px;
   height: 50px;
-  font-family: ${({ theme }) => theme.font.main};
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -41,7 +40,6 @@ const BoldText = styled(Text)`
 
 const Anchor = styled.a`
   font-size: ${({ theme }) => theme.fontSizes[0]};
-  font-family: ${({ theme }) => theme.font.main};
   color: #22a2dc;
 `
 

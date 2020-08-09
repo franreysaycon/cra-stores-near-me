@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 const Header = styled.header`
-  font-family: ${({ theme }) => theme.font.main};
   margin-bottom: ${({ theme }) => theme.spaces[0]};
   font-size: ${({ theme, size }) => theme.fontSizes[size+1]};
   color: ${({ theme }) => theme.fontColor.main}; 
