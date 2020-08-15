@@ -1,5 +1,5 @@
 import React from 'react'
-import ConvenienceStore from '../convenience-store.png'
+import ConvenienceStore from '../store.png'
 import styled from 'styled-components'
 
 const Image = styled.img`
